@@ -1,0 +1,13 @@
+<div class="d-flex bg-dark-subtle" style=" max-width: 100vw">
+  <!-- <div
+    style="min-width: 20%"
+    [style.min-width]="windowWidth>768 ? '17rem ' : '0rem'"
+    [style.display]="windowWidth>768 ? 'block' : 'none'"
+  >
+    <app-sidebar></app-sidebar>
+  </div> -->
+  <div class="pr-2 pl-2" style="min-width: 60%; width: 100%">
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="row justify-content-center align-items-center vh-100">
+    <div class="col-lg-6 col-md-12 d-flex justify-content-center  text-white py-5 h-100" style="background: #002249;">
+      <h1 class="display-4 m-auto text-center">Boston Financial Admin</h1>
+    </div>
+    <div class="col-lg-6 col-md-12 bg-light h-100 d-flex justify-content-center align-items-center">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <form class="p-4 rounded bg-white shadow-sm">
+              <h2 class="mb-4">Login</h2>
+              <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username" placeholder="Enter your username">
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" placeholder="Enter your password">
+              </div>
+              <button class="btn text-white" style="background: #002249;" (click)="onLoginClick()">Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,87 @@
+<!-- <div class="container-fluid ml-3" style="background: #fff ">
+  SEARCH AND ADD -->
+<div class="row" style="background: #fff; margin: 1px; padding-top: 2%">
+  <div class="col-lg-4 col-xs-6 mmb-2">
+    <input class="form-control" placeholder="Search All" style="height: 38px" />
+    <!-- (keyup)="applyFilter($event)" -->
+  </div>
+  <div class="text-center">
+    <h2 class="fw-bolder" style="word-spacing: 5px">Blog List</h2>
+  </div>
+</div>
+<div class="mt-5 m-3">
+  <table class="table table-striped p-3">
+    <thead>
+      <tr class="text-center">
+        <th>No.</th>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Author</th>
+        <th>Image</th>
+        <th>Date</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>view</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="text-center" *ngFor="let item of tableData; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.title }}</td>
+        <!-- <td>{{ item.titleDesc }}</td> -->
+        <!-- <td>{{ item.shortDesc }}</td> -->
+        <!-- <td>{{ item.description }}</td> -->
+        <td>{{ item.category }}</td>
+        <!-- <td>
+          <ul>
+            <li *ngFor="let subtitle of item.subtitle">{{ subtitle }}</li>
+          </ul>
+        </td> -->
+        <td>{{ item.author }}</td>
+        <td>
+          <img
+            *ngIf="item.imgFile && item.imgFile.secure_url"
+            [src]="item.imgFile.secure_url"
+            alt="Blog Image"
+            height="50"
+            width="50"
+          />
+        </td>
+        <td>{{ item.createdAt | date: 'yyyy-MM-dd' }}</td>
+        <td><button class="btn btn-primary" (click)="editBlog(item._id)">Edit</button></td>
+        <td><button class="btn btn-danger"  (click)="deleteBlog(item._id)">Delete</button></td>
+        <td><button class="btn btn-success"  (click)="viewBlog(item._id)">View</button></td>
+      </tr>
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <td colspan="12">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item" (click)="pageChanged({ page: currentPage - 1 })">
+                <a class="page-link" href="#">Previous</a>
+              </li>
+              <li class="page-item" *ngFor="let page of getPages()">
+                <a class="page-link" (click)="pageChanged({ page })">{{ page }}</a>
+              </li>
+              <li class="page-item" (click)="pageChanged({ page: currentPage + 1 })">
+                <a class="page-link" href="#">Next</a>
+              </li>
+            </ul>
+          </nav>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+<!-- <mat-paginator
+    (page)="handlePageEvent($event)"
+    [length]="length"
+    [pageSize]="pageSize"
+    [pageIndex]="pageIndex"
+    aria-label="Select page of users"
+  ></mat-paginator> -->
+
+<!-- TABLE -->
